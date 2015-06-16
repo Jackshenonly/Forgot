@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title></title>
+        <!--<link rel="stylesheet" type="text/css" href="../css/api.css" />-->
+        <!--<link rel="stylesheet" type="text/css" href="../css/common.css" />-->
+        <link rel="stylesheet" type="text/css" href="../css/pwdList.css" />
+        <link rel="stylesheet" type="text/css" href="../css/login-register.css" />
+        <link rel="stylesheet" type="text/css" href="../res/css/bootstrap.min.css">
+        <script src="../script/jquery-1.11.2.js"></script>
+        <script src="../res/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+		html, body {
+			height: 100%
+		}
+		body {
+			background-color: #f2f2f2;
+			font-size: 14px;
+		}
+		#header {
+			background-color: #55abce;
+			text-align: center;
+			color: #fff;
+			width: 100%;
+			position: relative;
+		}
+		#header .back-icon {
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			background: url(../image/arr-l.png) no-repeat center center;
+			-webkit-background-size: 14px 18px;
+			background-size: 14px 18px;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		#header h1 {
+			font-size: 20px;
+			height: 44px;
+			line-height: 44px;
+			margin: 0em;
+			color: #fff;
+		}
+    </style>
+    <body>
+        <div id="header">
+            <h1>我的密码</h1>
+        </div>
+        <div id="publish" style="position:fixed;top:5px;right:10px;weight:40px;height:40px" onclick="PageToadd_pwd()" >
+            <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <form class="form-search">
+                        <table style="width:100%">
+                            <tr>
+                                <td>
+                                <div class="input-wrap">
+                                    <input type="text"    id="where"  class="txt" />
+                                    
+                                </div></td>
+                                <td >
+                                <div style="margin-top:15px;font-size:30px">
+                                    <button class = "btn btn-warning" onclick="searchPwd()"><span class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                                </td>
+                                
+                </tr>
+                </table>
+                </form>
+            </div>
+        </div>
+        </div>
+        <script id="pwd-template" type="text/x-dot-template">
+            {{~    it.pwd:value:index    }}
+            <div class="accordion-group">
+            <div class="accordion-heading">
+            <p id ="iwhere" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-903520" href="#{{=value.id}}">{{=value.where}}</p>
+            </div>
+            <div id="{{=value.id}}" class="accordion-body collapse">
+            <div class="accordion-inner" >
+            <div align="right">
+            <div class="btn-group">
+            <button class="btn btn-info" type="button" onclick="checkAuthorityAndRun('view','{{=value.command}}','{{=value.hint}}',{{=value.id}})">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            </button>
+            <button class="btn btn-warning" type="button" onclick="checkAuthorityAndRun('modify','{{=value.command}}','{{=value.hint}}',{{=value.id}})">
+            <span class="glyphicon glyphicon-edit"></span>
+            </button>
+            <button class="btn btn-danger" type="button" onclick="checkAuthorityAndRun('delete','{{=value.command}}','{{=value.hint}}',{{=value.id}})">
+            <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            {{~}}
+        </script>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="accordion" id="accordion-903520"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../script/api.js"></script>
+        <script type="text/javascript" src="../script/common.js"></script>
+        <script type="text/javascript" src="../script/pwdList.js"></script>
+        <script type="text/javascript" src="../script/myfile.js"></script>
+        <script type="text/javascript" src="../script/doT.min.js"></script>
+        <script type="text/javascript" src="../script/base64.js"></script>
+        <script type="text/javascript" src="../script/md5.js"></script>
+        <script type="text/javascript" src="../script/des.js"></script>
+    </body>
+</html>
