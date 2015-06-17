@@ -50,20 +50,18 @@
             <h1>我的密码</h1>
         </div>
         <div id="publish" style="position:fixed;top:5px;right:10px;weight:40px;height:40px" onclick="PageToadd_pwd()" >
-            <button class="btn btn-primary">
+            <button class="btn btn-info">
                 <span class="glyphicon glyphicon-plus"></span>
             </button>
         </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
                 <div class="span12">
-                    <form class="form-search">
+                    
                         <table style="width:100%">
                             <tr>
                                 <td>
                                 <div class="input-wrap">
-                                    <input type="text"    id="where"  class="txt" />
-                                    
+                                    <input type="text" placeholder="请输入平台关键字" onfocus="edit(this)" onblur="cancel(this)" id="where" class="txt" value="" />
+                                    <i class="del" tapmode="" onclick="delWord(this)"></i>
                                 </div></td>
                                 <td >
                                 <div style="margin-top:15px;font-size:30px">
@@ -73,10 +71,8 @@
                                 
                 </tr>
                 </table>
-                </form>
+               
             </div>
-        </div>
-        </div>
         <script id="pwd-template" type="text/x-dot-template">
             {{~    it.pwd:value:index    }}
             <div class="accordion-group">

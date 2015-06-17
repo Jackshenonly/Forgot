@@ -150,23 +150,22 @@ function searchPwd() {
 		api.readFile({
 			path : 'fs://forgot/pwd.txt'
 		}, function(ret, err) {
-			text = ret.data;
+			des_text = ret.data;
+			text = des_decode(des_text);
 			mjson = $api.strToJson(text);
 			var filter_json = {
 				"pwd" : []
 			};
-			alert(part);
+			
 			for (var i = 0; i < mjson.pwd.length; i++) {
-				alert(mjson.pwd[i].where);
-				if (mjson.pwd[i].where == part) {
+				
+				if (mjson.pwd[i].where.indexOf(part) >= 0 ) {
 					filter_json.pwd.push(mjson.pwd[i]);
 
 				}
 
 			}
-			api.alert({
-				msg : filter_json
-			});
+
 			var evalText = doT.template($("#pwd-template").text());
 			$("#accordion-903520").html(evalText(filter_json));
 

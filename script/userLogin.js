@@ -112,23 +112,5 @@ apiready = function() {
 	var header = $api.byId('header');
 	$api.fixIos7Bar(header);
 	firstLogin();
-	init_json = {
-		"pwd" : [{
-			"id" : 0,
-			"where" : "test(口令也是test)",
-			"account" : "test",
-			"pwd" : "test",
-			"command" : "test",
-			"hint" : "test",
-			"remarks" : "test"
-		}]
-	};
-	var base64 = new Base64();
-	init_json.pwd[0].account = base64.encode(init_json.pwd[0].account);
-	init_json.pwd[0].pwd = base64.encode(init_json.pwd[0].pwd);
-	init_json.pwd[0].command = hex_md5(init_json.pwd[0].command);
-	init_json.pwd[0].hint = base64.encode(init_json.pwd[0].hint);
-	init_json.pwd[0].remarks = base64.encode(init_json.pwd[0].remarks);
-	var init_text = $api.jsonToStr(init_json);
-	writeFile("pwd.txt", des_encode(init_text));
+
 };
